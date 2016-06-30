@@ -1,0 +1,5 @@
+{
+  "prod": "https://itunes.apple.com/",
+  "qa": "https://itunes.apple.com/",
+  "dev": "https://itunes.apple.com/"
+}

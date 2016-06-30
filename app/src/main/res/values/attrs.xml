@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="STTNumberPicker">
+        <attr name="itemsTitleSize" format="dimension" />
+        <attr name="itemsTitleColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TLTextView">
+        <attr name="fontName" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+        <attr name="underLineColor" format="color" />
+        <attr name="underLineText" format="string" />
+        <attr name="hasMessageStyle" format="boolean" />
+    </declare-styleable>
+
+</resources>

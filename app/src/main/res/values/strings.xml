@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Rappi</string>
+    <string name="initial_time">00:00</string>
+    <string name="recognition_start">Inicio de reconocimiento de voz</string>
+    <string name="home_settings">Configuración</string>
+    <string name="home_start">Empezar</string>
+    <string name="home_dialog_title">Selecciona la edad (Entre 8 - 12 años)</string>
+    <string name="settings_time_title">Configurar duración del test</string>
+    <string name="settings_minutes">min</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_add_new_phrase">Añadir nueva frase + </string>
+    <string name="settings_add_new_phrase_title">Añadir</string>
+    <string name="settings_add_new_phrase_hint">Escribe una frase</string>
+    <string name="list_text">Texto#%d</string>
+
+    <!-- ERROR MESSAGES -->
+    <string name="recognition_error">Hubo un error vuelva intentarlo otra vez</string>
+    <string name="add_phrase_success_message">Frase añadida</string>
+    <string name="add_phrase_error_message">Frase no permitida</string>
+
+    <string name="reading_very_top_level">Muy rapida</string>
+    <string name="reading_top_level">Rapida</string>
+    <string name="reading_medium_level">Rapida mediana</string>
+    <string name="reading_very_medium_level">Lenta mediana</string>
+    <string name="reading_low_level">Lenta</string>
+    <string name="reading_very_low_level">Lenta</string>
+
+
+</resources>

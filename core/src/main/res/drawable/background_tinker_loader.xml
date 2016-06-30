@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="@color/tinkercolor_50" />
+
+    <padding
+        android:bottom="@dimen/loader_padding"
+        android:left="@dimen/loader_padding"
+        android:right="@dimen/loader_padding"
+        android:top="@dimen/loader_padding" />
+
+    <corners
+        android:bottomLeftRadius="@dimen/loader_radius"
+        android:bottomRightRadius="@dimen/loader_radius"
+        android:topLeftRadius="@dimen/loader_radius"
+        android:topRightRadius="@dimen/loader_radius" />
+</shape>

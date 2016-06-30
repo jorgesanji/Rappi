@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="google_places_api_key" translatable="false">AIzaSyBtxj3752Mh0oNP_-Tz733vP7Brz4NX4LE</string>
+    <string name="google_analytics_key" translatable="false">UA-73368716-1</string>
+    <string name="google_gcm_id_sender" translatable="false">797030559534</string>
+</resources>

@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.main.HomeActivity">
+
+    <item
+        android:id="@+id/action_speak"
+        android:icon="@android:drawable/ic_btn_speak_now"
+        android:title="speak"
+        app:showAsAction="withText|ifRoom" />
+
+    <item
+        android:id="@+id/action_stop"
+        android:icon="@android:drawable/ic_media_pause"
+        android:title="stop"
+        app:showAsAction="withText|ifRoom" />
+
+</menu>

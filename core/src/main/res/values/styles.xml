@@ -1,0 +1,40 @@
+<resources>
+
+    <style name="ThemeToolbar" parent="Theme.AppCompat.Light">
+
+        <!-- Tool bar background -->
+        <item name="android:background">@android:color/transparent</item>
+        <!-- navigation icon color -->
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <!-- colorPrimaryDark is used for the status bar -->
+        <!--<item name="colorPrimary">@color/tinkercolor</item>-->
+        <item name="colorPrimaryDark">@color/tinkercolor</item>
+        <!-- Subtitle color -->
+        <item name="android:textColorSecondary">@color/black</item>
+        <!-- Title color-->
+        <item name="android:textColorPrimary">@color/white</item>
+
+        <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
+
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/ThemeToolbar</item>
+        <item name="android:popupMenuStyle">@style/PopupMenuStyle</item>
+    </style>
+
+
+    <style name="PopupMenuStyle" parent="@style/Widget.AppCompat.Light.PopupMenu">
+        <item name="android:popupBackground">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>
