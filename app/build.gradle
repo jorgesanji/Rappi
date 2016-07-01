@@ -34,6 +34,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
-    compile 'io.realm:realm-android:0.73.1'
+    compile 'io.realm:realm-android:0.84.1'
     compile project(path: ':core')
 }

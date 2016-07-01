@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/Users/jorgesanmartin/.gradle/caches/modules-2/files-2.1/io.realm/realm-android/0.73.1/3d71534849c19a9b086bab110feba1d3ff752ce5/realm-android-0.73.1.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="3d71534849c19a9b086bab110feba1d3ff752ce5">
-        <dex dex="/Users/jorgesanmartin/Documents/Repositories/android/Rappi/app/build/intermediates/transforms/dex/debug/folders/1000/10/realm-android-0.73.1_3bdbee0973fc1c76a2c790a93713133ded29970e/classes.dex" />
-    </item>
-
-</items>
+<items version="2" />
