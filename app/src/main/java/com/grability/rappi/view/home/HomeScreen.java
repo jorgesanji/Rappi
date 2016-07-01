@@ -3,17 +3,20 @@ package com.grability.rappi.view.home;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
 
 import com.grability.rappi.R;
-import com.grability.rappi.view.animation.Animation;
+import com.grability.rappi.model.dataacess.rest.model.RestEntry;
+import com.grability.rappi.utils.TLDividerItemDecoration;
+import com.grability.rappi.view.customviews.RPRecyclerView;
+import com.grability.rappi.view.home.adapter.ListAdapter;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 2/25/16.
@@ -21,20 +24,17 @@ import butterknife.OnClick;
 public class HomeScreen extends RelativeLayout {
 
     public interface Listener {
-        void onSettingsPressed();
-
-        void ageSelected(int age);
+        void onItemClickPressed(int position);
     }
 
     // Vars
     private Listener listener;
+    private ListAdapter mAdapter;
+    private LinearLayoutManager mLayoutManager;
 
     // Views
-    @BindView(R.id.ageSelector)
-    NumberPicker mAgeSelector;
-
-    @BindView(R.id.containerAgeSelector)
-    View mView;
+    @BindView(R.id.homelist)
+    RPRecyclerView mHomeList;
 
     /**
      * @param context
@@ -77,41 +77,23 @@ public class HomeScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_home, this);
         ButterKnife.bind(this);
-        initUI();
+        initRecyclerView();
+        initAdapter();
     }
 
-    private void initUI() {
-        mAgeSelector.setMinValue(8);
-        mAgeSelector.setMaxValue(12);
+    private void initRecyclerView() {
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mHomeList.setLayoutManager(mLayoutManager);
+        mHomeList.addItemDecoration(new TLDividerItemDecoration(getContext(), R.drawable.line_divider_contacts));
+    }
+
+    private void initAdapter() {
+        mAdapter = new ListAdapter();
+        mHomeList.setAdapter(mAdapter);
     }
 
     // Actions
 
-    @OnClick(R.id.containerDialog)
-    protected void disableTouchDialog() {
-    }
-
-    @OnClick(R.id.startButton)
-    protected void startPresssed() {
-        mView.setVisibility(VISIBLE);
-        mView.startAnimation(Animation.getScaleAndAphaAnimation());
-    }
-
-    @OnClick(R.id.settingsButton)
-    protected void settingsPresssed() {
-        listener.onSettingsPressed();
-    }
-
-    @OnClick(R.id.ageSelected)
-    protected void selectedPressed() {
-        listener.ageSelected(mAgeSelector.getValue());
-        mView.setVisibility(GONE);
-    }
-
-    @OnClick(R.id.containerAgeSelector)
-    protected void containerPressed() {
-        mView.setVisibility(GONE);
-    }
 
     // Public methods
 
@@ -121,6 +103,10 @@ public class HomeScreen extends RelativeLayout {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public void addItems(List<RestEntry> entryList) {
+        mAdapter.addItems(entryList);
     }
 
 }

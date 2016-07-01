@@ -6,16 +6,6 @@
     <color name="black">#000000</color>
     <color name="gray">#D4D4D4</color>
 
-    <color name="linkercolor">#88bf00</color>
-    <color name="linkercolor_30">#4D88bf00</color>
-    <color name="linkercolor_50">#8088bf00</color>
-    <color name="linkercolor_80">#CC88bf00</color>
-
-    <color name="tinkercolor">#9c27b0</color>
-    <color name="tinkercolor_30">#4D9c27b0</color>
-    <color name="tinkercolor_50">#809c27b0</color>
-    <color name="tinkercolor_80">#CC9c27b0</color>
-
     <color name="warningcolor">#ECD420</color>
     <color name="errorcolor">#DE0707</color>
 

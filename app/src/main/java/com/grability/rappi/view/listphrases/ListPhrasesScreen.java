@@ -87,7 +87,6 @@ public class ListPhrasesScreen extends RelativeLayout {
         mLayoutManager = new LinearLayoutManager(getContext());
         mList.setLayoutManager(mLayoutManager);
         mList.addItemDecoration(new TLDividerItemDecoration(getContext(), R.drawable.line_divider_contacts));
-
     }
 
     private void initAdapter() {

@@ -1,5 +1,6 @@
 package com.grability.rappi.view.base;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -65,6 +66,7 @@ public abstract class RappiActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(getView());
         ButterKnife.bind(this);
+        setOrientation();
         initToolbar();
         initFragment();
     }
@@ -78,6 +80,15 @@ public abstract class RappiActivity extends BaseActivity {
         }
         return (super.onOptionsItemSelected(menuItem));
     }
+
+    protected void setOrientation() {
+        if (getResources().getBoolean(R.bool.portrait_only)) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+    }
+
 
     private void initToolbar() {
 
@@ -119,12 +130,12 @@ public abstract class RappiActivity extends BaseActivity {
     }
 
     protected void configToolBarWhiteMode() {
-        configToolbar(getResources().getColor(R.color.white), "", getResources().getColor(R.color.black), null);
+        configToolbar(getResources().getColor(R.color.white), "", getResources().getColor(R.color.white), null);
         mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
     }
 
     protected void configDefaultMode() {
-        configToolbar(getResources().getColor(android.R.color.transparent), "", getResources().getColor(R.color.black), null);
+        configToolbar(getResources().getColor(R.color.colorPrimary), "", getResources().getColor(R.color.white), null);
         mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
     }
 

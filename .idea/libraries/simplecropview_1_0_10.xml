@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="simplecropview-1.0.10">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.isseiaoki/simplecropview/1.0.10/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.isseiaoki/simplecropview/1.0.10/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.isseiaoki/simplecropview/1.0.10/986ba0b97914566a1e3fa27747e06e79a0572e44/simplecropview-1.0.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

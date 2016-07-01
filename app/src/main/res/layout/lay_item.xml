@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_heigth"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.grability.rappi.view.customviews.RPImageView
+        android:id="@+id/appImage"
+        android:layout_width="@dimen/image_thumb_size"
+        android:layout_height="@dimen/image_thumb_size"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:imageRounded="true" />
+
+    <com.grability.rappi.view.customviews.RPTextView
+        android:id="@+id/appName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginRight="@dimen/margin_min"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="2"
+        app:fontName="Bold" />
+
+</LinearLayout>

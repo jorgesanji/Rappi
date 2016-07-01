@@ -1,101 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     android:orientation="vertical">
 
-    <ImageView
+    <com.grability.rappi.view.customviews.RPRecyclerView
+        android:id="@+id/homelist"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_reader" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/startButton"
-            style="@style/ButtonsStyle"
-            android:layout_weight="1"
-            android:text="@string/home_start" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/margin_min"
-            android:layout_marginTop="@dimen/margin_min"
-            android:background="@color/white" />
-
-        <TextView
-            android:id="@+id/settingsButton"
-            style="@style/ButtonsStyle"
-            android:layout_weight="1"
-            android:text="@string/home_settings" />
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/containerAgeSelector"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:id="@+id/containerDialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/margin_biggest"
-            android:layout_marginRight="@dimen/margin_biggest"
-            android:background="@color/white"
-            android:elevation="6dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_min"
-                android:padding="@dimen/margin_min"
-                android:text="@string/home_dialog_title"
-                android:gravity="center_horizontal"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_mediun" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="@dimen/margin_min"
-                android:layout_marginRight="@dimen/margin_min"
-                android:background="@color/gray_card" />
-
-            <com.grability.rappi.view.customviews.STTNumberPicker
-                android:id="@+id/ageSelector"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_min"
-                android:descendantFocusability="blocksDescendants"
-                app:itemsTitleColor="@color/colorAccent"
-                app:itemsTitleSize="@dimen/text_size_mediun" />
-
-            <Button
-                android:id="@+id/ageSelected"
-                style="@style/ButtonsStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_mediun"
-                android:layout_marginTop="@dimen/margin_min"
-                android:text="@android:string/ok" />
-
-        </LinearLayout>
-
-    </RelativeLayout>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

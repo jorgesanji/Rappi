@@ -1,5 +1,6 @@
 package com.grability.rappi.view.home;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.cronosgroup.core.managers.PermissionsManager;
@@ -12,8 +13,15 @@ import java.util.List;
 public class HomeActivity extends RappiActivity {
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getSupportActionBar().setHomeButtonEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
     public boolean hasToolbar() {
-        return false;
+        return true;
     }
 
     @Override

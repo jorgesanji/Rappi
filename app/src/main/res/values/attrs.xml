@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="STTNumberPicker">
-        <attr name="itemsTitleSize" format="dimension" />
-        <attr name="itemsTitleColor" format="color" />
-    </declare-styleable>
 
-    <declare-styleable name="TLTextView">
+    <declare-styleable name="RPTextView">
         <attr name="fontName" format="integer">
             <flag name="Regular" value="0" />
             <flag name="Bold" value="1" />
@@ -16,5 +12,16 @@
         <attr name="underLineText" format="string" />
         <attr name="hasMessageStyle" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="RPRecyclerView">
+        <attr name="factorVelocity" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="RPImageView">
+        <attr name="imageError" format="reference" />
+        <attr name="imageEmptyUri" format="reference" />
+        <attr name="imageRounded" format="boolean" />
+    </declare-styleable>
+
 
 </resources>

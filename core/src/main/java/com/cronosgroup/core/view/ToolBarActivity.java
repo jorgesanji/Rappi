@@ -139,12 +139,12 @@ public abstract class ToolBarActivity extends BaseActivity<BaseApplication> {
     }
 
     protected void configLinkerDefaultMode() {
-        configToolbar(getResources().getColor(R.color.linkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
+        configToolbar(getResources().getColor(R.color.white), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
         mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_linker_loader);
     }
 
     protected void configTinkerDefaultMode() {
-        configToolbar(getResources().getColor(R.color.tinkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
+        configToolbar(getResources().getColor(R.color.white), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
         mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
     }
 
@@ -154,12 +154,12 @@ public abstract class ToolBarActivity extends BaseActivity<BaseApplication> {
     }
 
     protected void configLinkerCardMode() {
-        configToolbar(getResources().getColor(R.color.linkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
+        configToolbar(getResources().getColor(R.color.white), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
         mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
     }
 
     protected void configTinkerCardMode() {
-        configToolbar(getResources().getColor(R.color.tinkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
+        configToolbar(getResources().getColor(R.color.white), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
         mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
     }
 
@@ -187,7 +187,7 @@ public abstract class ToolBarActivity extends BaseActivity<BaseApplication> {
 
     @Override
     public int getStatusColor() {
-        return getResources().getColor(R.color.tinkercolor);
+        return getResources().getColor(R.color.gray);
     }
 
     @Override

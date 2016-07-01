@@ -26,7 +26,6 @@ public class PhraseViewHolder extends BaseViewHolder<Phrase> {
 
     @Override
     public void configureItem(Phrase item) {
-        mSubtitle.setText(String.format(itemView.getContext().getString(R.string.list_text), getAdapterPosition()))
-        ;
+        mSubtitle.setText(String.format(itemView.getContext().getString(R.string.list_text), getAdapterPosition()));
     }
 }

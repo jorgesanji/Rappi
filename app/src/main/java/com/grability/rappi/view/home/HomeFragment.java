@@ -4,20 +4,23 @@ import android.view.View;
 
 import com.cronosgroup.core.view.MVPFragment;
 import com.grability.rappi.ScreenNavigationHandler;
+import com.grability.rappi.model.dataacess.rest.model.RestEntry;
 import com.grability.rappi.presenter.home.HomePresenter;
+
+import java.util.List;
 
 /**
  * Created by jorgesanmartin on 2/25/16.
  */
 public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View> implements HomePresenter.View, HomeScreen.Listener {
 
-    private HomeScreen listPhrasesScreen;
+    private HomeScreen homeScreen;
 
     @Override
     protected View getRootView() {
-        listPhrasesScreen = new HomeScreen(getActivity());
-        listPhrasesScreen.setListener(this);
-        return listPhrasesScreen;
+        homeScreen = new HomeScreen(getActivity());
+        homeScreen.setListener(this);
+        return homeScreen;
     }
 
     @Override
@@ -32,21 +35,20 @@ public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View>
 
     @Override
     protected void onDidAppear() {
-
+        getPresenter().getItems();
     }
 
     // HomePresenter.View
 
+    @Override
+    public void setItems(List<RestEntry> list) {
+        homeScreen.addItems(list);
+    }
 
     // HomeScreen.Listener
 
     @Override
-    public void onSettingsPressed() {
-        getPresenter().settingsPressed();
-    }
+    public void onItemClickPressed(int position) {
 
-    @Override
-    public void ageSelected(int age) {
-        getPresenter().startPressed(age);
     }
 }
