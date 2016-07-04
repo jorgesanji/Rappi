@@ -141,6 +141,10 @@ public abstract class RappiActivity extends BaseActivity {
 
     //Public methods
 
+    public void setView(View view) {
+        this.view = view;
+    }
+
     public Toolbar getToolbar() {
         return mToolbar;
     }

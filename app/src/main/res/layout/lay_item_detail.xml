@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin_min"
+    android:background="@drawable/background_item"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/padding_min"
+            android:layout_marginTop="@dimen/padding_min"
+            android:orientation="vertical">
+
+            <com.grability.rappi.view.customviews.RPImageView
+                android:id="@+id/appImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_big_size"
+                android:layout_margin="@dimen/margin_min"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <com.grability.rappi.view.customviews.RPTextView
+                android:id="@+id/appName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_marginRight="@dimen/margin_min"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:textSize="@dimen/text_size_big"
+                app:fontName="Bold" />
+
+            <com.grability.rappi.view.customviews.RPTextView
+                android:id="@+id/appCategoryName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_marginRight="@dimen/margin_min"
+                android:textSize="@dimen/text_size_tiny"
+                app:fontName="Light" />
+
+            <com.grability.rappi.view.customviews.RPTextView
+                android:id="@+id/appDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_marginRight="@dimen/margin_min"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:textSize="@dimen/text_size_mediun"
+                app:fontName="Regular" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
+

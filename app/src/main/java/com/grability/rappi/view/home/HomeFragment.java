@@ -4,8 +4,9 @@ import android.view.View;
 
 import com.cronosgroup.core.view.MVPFragment;
 import com.grability.rappi.ScreenNavigationHandler;
-import com.grability.rappi.model.dataacess.rest.model.RestEntry;
+import com.grability.rappi.model.dataacess.database.model.AppItem;
 import com.grability.rappi.presenter.home.HomePresenter;
+import com.grability.rappi.view.base.RappiActivity;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View> implements HomePresenter.View, HomeScreen.Listener {
 
     private HomeScreen homeScreen;
+    private List<AppItem> items;
 
     @Override
     protected View getRootView() {
@@ -41,14 +43,44 @@ public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View>
     // HomePresenter.View
 
     @Override
-    public void setItems(List<RestEntry> list) {
+    public void setItems(List<AppItem> list) {
+        this.items = list;
         homeScreen.addItems(list);
+    }
+
+    @Override
+    public void showLoading() {
+        if (getActivity() != null) {
+            ((RappiActivity) getActivity()).showLoading();
+        }
+    }
+
+    @Override
+    public void hideLoading() {
+        if (getActivity() != null) {
+            ((RappiActivity) getActivity()).hideLoading();
+        }
+    }
+
+    @Override
+    public List<AppItem> getItems() {
+        return items;
     }
 
     // HomeScreen.Listener
 
     @Override
     public void onItemClickPressed(int position) {
+        getPresenter().onItemPressed(position);
+    }
 
+    @Override
+    public void onCategoriesPressed() {
+        homeScreen.setCategory(true, getItems());
+    }
+
+    @Override
+    public void onApplicationPressed() {
+        homeScreen.setCategory(false, getItems());
     }
 }

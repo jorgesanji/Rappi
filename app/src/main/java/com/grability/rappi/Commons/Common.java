@@ -6,21 +6,16 @@ package com.grability.rappi.Commons;
 public class Common {
 
     public static final int MILLIS_SECONDS = 1000;
-    public static final int DEFAULT_MAX_MILLIS = 1000;
-
-    public static final int ADD_PHRASE_CODE = 1000;
-    public static final String ADD_PHRASE_KEY = "add_phrase";
-    public static final int MINIMUN_LENGHT_PHRASE = 20;
-
-    public static final String KEY_AGE = "age";
-
-    public static final int DEFAULT_SIZE = 50;
-
-    public static final String ITEM_SELECTED = "item_selected";
 
     //HOME CONSTANTS
 
     public static final long SPLASH_DURATION = 2000;
 
+    //DETAIL CONSTANTS
 
+    public static final String ITEM_SELECTED = "item_selected";
+    public static final String ITEM_ID = "item_id";
+
+    public static final long TIME_TO_ANIMATION = 500;
+    public static final long DELAY_TO_ANIMATION = 80;
 }

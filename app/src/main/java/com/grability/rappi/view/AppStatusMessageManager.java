@@ -29,16 +29,10 @@ public class AppStatusMessageManager extends StatusMessageManager {
         super(view);
     }
 
-    public void showRecognitionError() {
-        showError(R.string.recognition_error);
+    // Errors
+
+    public void showNetworkError() {
+        showError(R.string.network_error);
     }
 
-
-    public void showErrorPhrase() {
-        showError(R.string.add_phrase_error_message);
-    }
-
-    public void showSuccesPhrase() {
-        showSuccess(R.string.add_phrase_success_message);
-    }
 }

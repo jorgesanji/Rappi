@@ -6,15 +6,16 @@ import android.os.Bundle;
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
-import com.grability.rappi.Commons.Common;
+import com.grability.rappi.events.BusProvider;
+import com.grability.rappi.events.DetailDataEvent;
 import com.grability.rappi.model.business.logic.RappiUseCases;
-import com.grability.rappi.model.dataacess.rest.model.RestEntry;
-import com.grability.rappi.model.dataacess.rest.model.RestResponse;
+import com.grability.rappi.model.dataacess.database.model.AppItem;
 import com.grability.rappi.presenter.base.RappiPresenter;
+import com.grability.rappi.utils.NetworkConnection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import io.realm.Realm;
 
 
 /**
@@ -29,40 +30,46 @@ public class HomePresenter extends RappiPresenter<HomePresenter.View> {
     }
 
     public interface View extends Presenter.View {
-        void setItems(List<RestEntry> list);
+        void setItems(List<AppItem> list);
+
+        List<AppItem> getItems();
     }
 
     public interface Actions {
-        void onSettingsPressed(Activity activity, Bundle bundle);
-
-        void onStartPressed(Activity activity, Bundle bundle);
+        void onItemPressed(Activity activity, Bundle bundle);
     }
 
     //Public methods
 
-    public void settingsPressed() {
-        listener.onSettingsPressed(getView().getActivity(), null);
-    }
-
-    public void startPressed(int age) {
-        Bundle bundle = new Bundle();
-        bundle.putInt(Common.KEY_AGE, age);
-        listener.onStartPressed(getView().getActivity(), bundle);
-    }
-
     public void getItems() {
-        RappiUseCases.getItems(new Callback<RestResponse, RestError>() {
-            @Override
-            public void onResponse(RestResponse response) {
-                getView().setItems(new ArrayList<RestEntry>(Arrays.asList(response.getFeed().getEntry())));
-            }
+        final Realm realm = Realm.getDefaultInstance();
+        if (!NetworkConnection.isConnected(getView().getContext())) {
+            getStatusView().showNetworkError();
+            getView().setItems(realm.where(AppItem.class).findAll());
+        } else {
 
-            @Override
-            public void onErrorResponse(RestError error) {
+            getView().showLoading();
 
-            }
-        }, getView().getActivity());
+            RappiUseCases.getItems(new Callback<List<AppItem>, RestError>() {
+                @Override
+                public void onResponse(List<AppItem> items) {
+                    getView().setItems(items);
+                    getView().hideLoading();
+                }
 
+                @Override
+                public void onErrorResponse(RestError error) {
+                    getStatusView().showNetworkError();
+                    getView().setItems(realm.where(AppItem.class).findAll());
+                    getView().hideLoading();
+                }
+            }, getView().getActivity());
+        }
     }
 
+    public void onItemPressed(int position) {
+        DetailDataEvent detailDataEvent = new DetailDataEvent(getView().getItems(), position);
+        listener.onItemPressed(getView().getActivity(), null);
+        BusProvider.getInstance().postWithDelay(detailDataEvent);
+    }
 }

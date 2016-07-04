@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -9,5 +10,35 @@
         android:id="@+id/homelist"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
+    <com.grability.rappi.view.customviews.RPMenuButton
+        android:id="@+id/menuView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:menuButtonBackgroundTintColor="@color/colorPrimary"
+        app:menuButtonImageResource="@mipmap/newsfeed_crearcard_net"
+        app:menuButtonStateExpandedImageResource="@mipmap/newsfeed_crearcard_cancelar">
+
+        <com.grability.rappi.view.customviews.RPMenuItem
+            android:id="@+id/applicationsbt"
+            style="@style/MenuItemStyle"
+            app:menuItemBackgroundTintColor="@color/colorPrimary"
+            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
+            app:menuItemTitle="@string/home_applications" />
+
+        <com.grability.rappi.view.customviews.RPMenuItem
+            android:id="@+id/categoriesbt"
+            style="@style/MenuItemStyle"
+            app:menuItemBackgroundTintColor="@color/colorAccent"
+            app:menuItemImageResource="@mipmap/newsfeed_linkercard_net"
+            app:menuItemTitle="@string/home_categories" />
+
+    </com.grability.rappi.view.customviews.RPMenuButton>
 
 </RelativeLayout>

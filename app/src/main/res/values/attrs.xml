@@ -23,5 +23,25 @@
         <attr name="imageRounded" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="RPMenuButton">
+        <attr name="menuButtonStateExpandedImageResource" format="reference" />
+        <attr name="menuButtonImageResource" format="reference" />
+        <attr name="menuButtonBackgroundTintColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RPMenuItem">
+        <attr name="menuItemTitleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+        <attr name="menuItemTitle" format="string" />
+        <attr name="menuItemTitleSize" format="dimension" />
+        <attr name="menuItemTitleColor" format="color" />
+        <attr name="menuItemImageResource" format="reference" />
+        <attr name="menuItemBackgroundTintColor" format="color" />
+    </declare-styleable>
+
 
 </resources>

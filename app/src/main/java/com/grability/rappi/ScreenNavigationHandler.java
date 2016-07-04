@@ -5,20 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import com.grability.rappi.presenter.detail.DetailPresenter;
+import com.grability.rappi.presenter.detail.ItemDetailPresenter;
 import com.grability.rappi.presenter.home.HomePresenter;
-import com.grability.rappi.presenter.listphrases.ListPhrasesPresenter;
-import com.grability.rappi.presenter.recognizer.RecognizerPresenter;
-import com.grability.rappi.presenter.settings.SettingsPresenter;
 import com.grability.rappi.presenter.splash.SplashPresenter;
+import com.grability.rappi.view.detail.AppDetailActivity;
 import com.grability.rappi.view.home.HomeActivity;
-import com.grability.rappi.view.listphrases.ListPhrasesActivity;
-import com.grability.rappi.view.recognizer.RecognizerActivity;
-import com.grability.rappi.view.settings.SettingsActivity;
+
 
 /**
  * Created by jorgesanmartin on 2/26/16.
  */
-public final class ScreenNavigationHandler implements ListPhrasesPresenter.Actions, RecognizerPresenter.Actions, HomePresenter.Actions, SettingsPresenter.Actions, SplashPresenter.Actions {
+public final class ScreenNavigationHandler implements HomePresenter.Actions, SplashPresenter.Actions,
+        DetailPresenter.Actions, ItemDetailPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -66,16 +65,8 @@ public final class ScreenNavigationHandler implements ListPhrasesPresenter.Actio
         return newTask(context, HomeActivity.class, bundle, true);
     }
 
-    private static Intent list(@NonNull Activity context, Bundle bundle) {
-        return newTask(context, ListPhrasesActivity.class, bundle);
-    }
-
-    private static Intent phrase(@NonNull Activity context, Bundle bundle) {
-        return newTask(context, RecognizerActivity.class, bundle);
-    }
-
-    private static Intent settings(@NonNull Activity context, Bundle bundle) {
-        return newTask(context, SettingsActivity.class, bundle);
+    private static Intent detail(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, AppDetailActivity.class, bundle);
     }
 
     // ------------------------ ACTIONS DEFINITION -----------------------------------
@@ -90,19 +81,8 @@ public final class ScreenNavigationHandler implements ListPhrasesPresenter.Actio
     //---HOME --
 
     @Override
-    public void onSettingsPressed(Activity activity, Bundle bundle) {
-        startActivity(activity, settings(activity, bundle));
+    public void onItemPressed(Activity activity, Bundle bundle) {
+        startActivity(activity, detail(activity, bundle));
     }
 
-    @Override
-    public void onStartPressed(Activity activity, Bundle bundle) {
-        startActivity(activity, list(activity, bundle));
-    }
-
-    //--RECOGINIZER  --
-
-    @Override
-    public void onSelectedPhrase(@NonNull Activity activity, Bundle bundle) {
-        startActivity(activity, phrase(activity, bundle));
-    }
 }

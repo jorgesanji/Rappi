@@ -45,8 +45,8 @@ public class SplashFragment extends MVPFragment<SplashPresenter, SplashPresenter
         mHandler.postDelayed(launchHome, Common.SPLASH_DURATION);
     }
 
-    // SettingsPresenter.View
+    // SplashPresenter.View
 
-    // SettingsScreen.Listener
+    // SplashScreen.Listener
 
 }

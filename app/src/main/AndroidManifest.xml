@@ -14,7 +14,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
     <application
         android:name="com.grability.rappi.application.RappiApplication"
@@ -46,15 +47,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.grability.rappi.view.listphrases.ListPhrasesActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name="com.grability.rappi.view.recognizer.RecognizerActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name="com.grability.rappi.view.settings.SettingsActivity"
+            android:name="com.grability.rappi.view.detail.AppDetailActivity"
             android:screenOrientation="portrait" />
 
     </application>

@@ -24,6 +24,10 @@
     <string name="reading_very_medium_level">Lenta mediana</string>
     <string name="reading_low_level">Lenta</string>
     <string name="reading_very_low_level">Lenta</string>
+    <string name="network_error">No hemos podido enviar tu petición. Revisa tu conexión a internet</string>
+
+    <string name="home_categories">Categories</string>
+    <string name="home_applications">Applications</string>
 
 
 </resources>
