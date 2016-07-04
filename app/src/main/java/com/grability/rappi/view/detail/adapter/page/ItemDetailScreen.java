@@ -3,6 +3,8 @@ package com.grability.rappi.view.detail.adapter.page;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
@@ -12,6 +14,7 @@ import com.grability.rappi.view.customviews.RPTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 2/25/16.
@@ -19,7 +22,7 @@ import butterknife.ButterKnife;
 public class ItemDetailScreen extends RelativeLayout {
 
     public interface Listener {
-
+        void appNamePressed();
     }
 
     // Vars
@@ -88,7 +91,10 @@ public class ItemDetailScreen extends RelativeLayout {
     }
 
     // Actions
-
+    @OnClick(R.id.appName)
+    protected void btAppPressed() {
+        listener.appNamePressed();
+    }
 
     // Public methods
 
@@ -106,7 +112,9 @@ public class ItemDetailScreen extends RelativeLayout {
 
     public void setAppName(String appName) {
         this.appName = appName;
-        mAppName.setText(appName);
+        SpannableString content = new SpannableString(appName);
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        mAppName.setText(content);
     }
 
     public String getAppUrl() {
@@ -123,7 +131,7 @@ public class ItemDetailScreen extends RelativeLayout {
     }
 
     public void setAppDescription(String appDescription) {
-        this.appDescription = appDescription;
+        this.appDescription = appDescription.replace("\n", "");
         mAppDescription.setText(appDescription);
     }
 

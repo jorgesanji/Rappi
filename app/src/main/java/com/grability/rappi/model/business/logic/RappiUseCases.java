@@ -2,6 +2,7 @@ package com.grability.rappi.model.business.logic;
 
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
+import com.grability.rappi.model.dataacess.database.managers.CategoryManager;
 import com.grability.rappi.model.dataacess.database.managers.ItemsManager;
 import com.grability.rappi.model.dataacess.rest.model.RestResponse;
 import com.grability.rappi.model.dataacess.rest.services.RappiServices;
@@ -20,7 +21,7 @@ public class RappiUseCases {
                 ItemsManager itemsManager = new ItemsManager();
                 itemsManager.saveItemsAndCategories(response.getFeed().getEntry());
                 // Return with callback
-                callback.onResponse(itemsManager.getAllItemOrderByName());
+                callback.onResponse(new CategoryManager().getAllItemOrderByName());
             }
 
             @Override

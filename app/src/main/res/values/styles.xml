@@ -80,4 +80,12 @@
         <item name="menuItemTitleFont">SemiBold</item>
     </style>
 
+    <style name="DialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="@android:background">@color/white</item>
+        <item name="android:textColorPrimary">@color/black_opaque_50</item>
+        <item name="android:textColorSecondary">@color/black_opaque_50</item>
+        <item name="android:divider">@color/gray_color</item>
+    </style>
+
+
 </resources>

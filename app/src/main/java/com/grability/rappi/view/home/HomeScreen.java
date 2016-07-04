@@ -160,9 +160,6 @@ public class HomeScreen extends RelativeLayout {
     public void setCategory(boolean isCategory, List items) {
         initAdapter(isCategory);
         mAdapter.setItems(items);
-        if (!isCategory) {
-            initListeners();
-        }
+        initListeners();
     }
-
 }

@@ -2,6 +2,7 @@ package com.grability.rappi;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -18,6 +19,8 @@ import com.grability.rappi.view.home.HomeActivity;
  */
 public final class ScreenNavigationHandler implements HomePresenter.Actions, SplashPresenter.Actions,
         DetailPresenter.Actions, ItemDetailPresenter.Actions {
+
+    public static final String URL = "url";
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -74,20 +77,32 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Spl
         return newTask(context, AppDetailActivity.class, bundle);
     }
 
+    private static Intent navigation(@NonNull Activity context, Bundle bundle) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(bundle.getString(URL)));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        return intent;
+    }
+
     // ------------------------ ACTIONS DEFINITION -----------------------------------
 
-    //---SPLASH --
+    //--- SPLASH --
 
     @Override
     public void onLaunchHome(Activity activity, Bundle bundle) {
         startActivity(activity, home(activity, bundle));
     }
 
-    //---HOME --
+    //--- HOME --
 
     @Override
     public void onItemPressed(Activity activity, Bundle bundle) {
         startActivity(activity, detail(activity, bundle));
     }
 
+    //--- ITEM --
+
+    @Override
+    public void onLinkPressed(Activity activity, Bundle bundle) {
+        startActivity(activity, navigation(activity, bundle));
+    }
 }

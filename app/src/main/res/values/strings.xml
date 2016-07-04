@@ -29,5 +29,7 @@
     <string name="home_categories">Categories</string>
     <string name="home_applications">Applications</string>
 
+    <string name="leave_app">Esta seguro que desea salir de la aplicacion?</string>
+
 
 </resources>

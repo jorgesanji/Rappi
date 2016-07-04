@@ -5,9 +5,11 @@ import android.view.View;
 
 import com.cronosgroup.core.view.MVPFragment;
 import com.grability.rappi.Commons.Common;
+import com.grability.rappi.R;
 import com.grability.rappi.ScreenNavigationHandler;
 import com.grability.rappi.model.dataacess.database.model.AppItem;
 import com.grability.rappi.presenter.detail.ItemDetailPresenter;
+import com.grability.rappi.utils.AppAlertBuilder;
 
 /**
  * Created by jorgesanmartin on 2/25/16.
@@ -55,6 +57,32 @@ public class ItemDetailFragment extends MVPFragment<ItemDetailPresenter, ItemDet
         itemDetailScreen.setAppCategoryName(appItem.getCategory().getLabel());
     }
 
+    @Override
+    public String getLink() {
+        return appItem.getUrl();
+    }
+
     // ItemDestailScreen.Listener
 
+    @Override
+    public void appNamePressed() {
+
+        AppAlertBuilder.showAlertWithMessage(getContext(), R.string.app_name, R.string.leave_app, android.R.string.cancel, android.R.string.ok, -1, new AppAlertBuilder.IOItemSelected() {
+            @Override
+            public void onItemSelected(int index, String title) {
+
+            }
+
+            @Override
+            public void onCancel(int index) {
+
+            }
+
+            @Override
+            public void onAccept(int index) {
+                getPresenter().onLinkPressed();
+            }
+        });
+
+    }
 }

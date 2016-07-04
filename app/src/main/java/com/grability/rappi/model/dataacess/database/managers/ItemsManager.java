@@ -38,4 +38,8 @@ public class ItemsManager {
         return items;
     }
 
+    public List<AppItem> getItemsById(String id) {
+        return appItemRepository.getItemsById(id);
+    }
+
 }

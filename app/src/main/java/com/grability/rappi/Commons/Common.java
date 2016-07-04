@@ -15,6 +15,7 @@ public class Common {
     public static final String ITEM_ID = "item_id";
 
     public static final String ITEM_POSITION = "position";
+    public static final String ITEM_NAME = "position";
 
     public static final long TIME_TO_ANIMATION = 500;
     public static final long DELAY_TO_ANIMATION = 80;

@@ -50,8 +50,6 @@ public class AppDetailFragment extends MVPFragment<DetailPresenter, DetailPresen
             @Override
             public void onFinishAnimation() {
                 appDetailScreen.animBackground();
-//                appDetailScreen.initView(getFragmentManager(), new ItemsManager().getAllItemOrderByName(), getArguments().getInt(Common.ITEM_POSITION));
-//                hideLoading();
             }
         });
     }
