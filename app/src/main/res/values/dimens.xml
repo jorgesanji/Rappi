@@ -28,6 +28,7 @@
     <dimen name="text_size_mediun">16sp</dimen>
     <dimen name="text_size_big">20sp</dimen>
     <dimen name="text_size_super_big">22sp</dimen>
+    <dimen name="text_size_super_super_big">50sp</dimen>
 
 
     <dimen name="list_item_heigth">80dp</dimen>

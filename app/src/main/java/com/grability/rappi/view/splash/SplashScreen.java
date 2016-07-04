@@ -4,10 +4,14 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
 import com.grability.rappi.R;
+import com.grability.rappi.view.customviews.RPTextView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -21,6 +25,10 @@ public class SplashScreen extends RelativeLayout {
 
     // Vars
     Listener listener;
+
+    // Views
+    @BindView(R.id.nameApp)
+    RPTextView appName;
 
     /**
      * @param context
@@ -63,7 +71,7 @@ public class SplashScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_splash, this);
         ButterKnife.bind(this);
-
+        appName.setVisibility(GONE);
     }
 
     // Actions
@@ -76,6 +84,12 @@ public class SplashScreen extends RelativeLayout {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public void startAnimation() {
+        appName.setVisibility(VISIBLE);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_transitionup_scale);
+        appName.startAnimation(animation);
     }
 
 }

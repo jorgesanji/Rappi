@@ -18,6 +18,7 @@ public class AppItem extends RealmObject implements Serializable {
     private String url;
     private AppCategory category;
     private String price;
+    private String currency;
 
     public AppItem() {
     }
@@ -90,7 +91,16 @@ public class AppItem extends RealmObject implements Serializable {
         return price;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     public void setPrice(String price) {
         this.price = price;
     }
+
 }

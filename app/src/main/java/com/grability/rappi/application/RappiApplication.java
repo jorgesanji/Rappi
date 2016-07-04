@@ -28,13 +28,7 @@ public class RappiApplication extends BaseApplication {
         initRestConfiguration();
         initImageLoader();
         initDatabase();
-        buildComponentAndInject();
     }
-
-    public void buildComponentAndInject() {
-//        component = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
-    }
-
     private void initAnalytics() {
         AnalyticsManager.initTracker(this, R.string.google_analytics_key);
     }

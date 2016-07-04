@@ -3,20 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/gray_50"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <com.grability.rappi.view.customviews.RPTextView
+        android:id="@+id/nameApp"
         style="@style/TitleStyle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/margin_mediun"
         android:gravity="center"
         android:text="@string/app_name"
         android:textAllCaps="true"
-        android:textSize="@dimen/text_size_super_big"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_super_super_big"
         app:fontName="Bold" />
 
 </RelativeLayout>

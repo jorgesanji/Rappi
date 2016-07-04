@@ -28,7 +28,9 @@ public class AppDetailActivity extends RappiActivity {
 
     @Override
     public Fragment getFragment() {
-        return new AppDetailFragment();
+        AppDetailFragment appDetailFragment = new AppDetailFragment();
+        appDetailFragment.setArguments(getIntent().getExtras());
+        return appDetailFragment;
     }
 
     @Override

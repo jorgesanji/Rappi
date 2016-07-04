@@ -95,7 +95,6 @@ public class AppDetailScreen extends RelativeLayout {
     }
 
     private void initPager() {
-//        mPager.setPageTransformer(true, new ZoomPageTransformer());
         mPager.setClipToPadding(false);
         mPager.setPadding(80, 0, 80, 0);
         mPager.setPageMargin(0);
@@ -118,6 +117,8 @@ public class AppDetailScreen extends RelativeLayout {
         mAdapter = new DetailAdapter(fragmentManager, appItemList);
         mPager.setAdapter(mAdapter);
         mPager.setCurrentItem(position);
+        mPager.invalidate();
+        mPager.requestLayout();
     }
 
     public void animBackground() {
@@ -147,4 +148,5 @@ public class AppDetailScreen extends RelativeLayout {
     public View getAnimableView() {
         return mBackgroundOut;
     }
+
 }

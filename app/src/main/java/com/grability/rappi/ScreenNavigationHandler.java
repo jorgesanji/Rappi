@@ -56,6 +56,11 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Spl
         if (clearTop) {
             openIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         }
+
+        if (bundle != null) {
+            openIntent.putExtras(bundle);
+        }
+
         return openIntent;
     }
 

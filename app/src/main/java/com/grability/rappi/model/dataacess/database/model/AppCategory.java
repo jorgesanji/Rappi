@@ -3,13 +3,16 @@ package com.grability.rappi.model.dataacess.database.model;
 import java.io.Serializable;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by jorgesanmartin on 3/7/16.
  */
 public class AppCategory extends RealmObject implements Serializable {
 
+    @PrimaryKey
     private String id;
+
     private String term;
     private String scheme;
     private String label;

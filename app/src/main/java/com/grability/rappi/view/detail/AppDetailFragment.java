@@ -46,11 +46,12 @@ public class AppDetailFragment extends MVPFragment<DetailPresenter, DetailPresen
     @Override
     protected void onDidAppear() {
         showLoading();
-
         Animations.revealFromTop(appDetailScreen.getAnimableView(), R.color.colorPrimary, new Animations.Listener() {
             @Override
             public void onFinishAnimation() {
                 appDetailScreen.animBackground();
+//                appDetailScreen.initView(getFragmentManager(), new ItemsManager().getAllItemOrderByName(), getArguments().getInt(Common.ITEM_POSITION));
+//                hideLoading();
             }
         });
     }
@@ -73,7 +74,7 @@ public class AppDetailFragment extends MVPFragment<DetailPresenter, DetailPresen
 
     // DetailScreen.Listener
 
-    // Subscribe
+    // Bus
     @Subscribe
     public void detailEvent(DetailDataEvent event) {
         appDetailScreen.initView(getFragmentManager(), event.getItems(), event.getPosition());

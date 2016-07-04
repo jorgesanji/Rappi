@@ -63,10 +63,10 @@ public abstract class RappiActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setOrientation();
         super.onCreate(savedInstanceState);
         setContentView(getView());
         ButterKnife.bind(this);
-        setOrientation();
         initToolbar();
         initFragment();
     }
@@ -80,15 +80,6 @@ public abstract class RappiActivity extends BaseActivity {
         }
         return (super.onOptionsItemSelected(menuItem));
     }
-
-    protected void setOrientation() {
-        if (getResources().getBoolean(R.bool.portrait_only)) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        } else {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }
-    }
-
 
     private void initToolbar() {
 
@@ -174,6 +165,14 @@ public abstract class RappiActivity extends BaseActivity {
     @Override
     public List<PermissionsManager.Permission> getRequestPermission() {
         return null;
+    }
+
+    public void setOrientation() {
+        if (getResources().getBoolean(R.bool.portrait_only)) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
     }
 
     @Override

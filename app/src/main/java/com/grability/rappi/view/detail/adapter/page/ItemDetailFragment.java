@@ -6,7 +6,6 @@ import android.view.View;
 import com.cronosgroup.core.view.MVPFragment;
 import com.grability.rappi.Commons.Common;
 import com.grability.rappi.ScreenNavigationHandler;
-import com.grability.rappi.events.BusProvider;
 import com.grability.rappi.model.dataacess.database.model.AppItem;
 import com.grability.rappi.presenter.detail.ItemDetailPresenter;
 
@@ -21,7 +20,6 @@ public class ItemDetailFragment extends MVPFragment<ItemDetailPresenter, ItemDet
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BusProvider.getInstance().register(this);
     }
 
     @Override

@@ -23,7 +23,7 @@ import com.cronosgroup.core.presenter.Presenter;
 public abstract class MVPFragment<P extends Presenter<V>, V extends Presenter.View> extends Fragment implements Presenter.View {
 
     private P presenter;
-    boolean readyInitialized = false;
+    private boolean readyInitialized = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,8 +63,8 @@ public abstract class MVPFragment<P extends Presenter<V>, V extends Presenter.Vi
         }
 
         if (!readyInitialized) {
-            onDidAppear();
             readyInitialized = true;
+            onDidAppear();
         }
     }
 
@@ -178,7 +178,7 @@ public abstract class MVPFragment<P extends Presenter<V>, V extends Presenter.Vi
 
     @Override
     public void removeActivityDelay() {
-        if (getActivity() != null){
+        if (getActivity() != null) {
             ((BaseActivity) getActivity()).removeActivityDelay();
         }
     }
@@ -201,4 +201,11 @@ public abstract class MVPFragment<P extends Presenter<V>, V extends Presenter.Vi
         getActivity().setTitle(stringResId);
     }
 
+    public boolean isReadyInitialized() {
+        return readyInitialized;
+    }
+
+    public void setReadyInitialized(boolean readyInitialized) {
+        this.readyInitialized = readyInitialized;
+    }
 }

@@ -63,6 +63,10 @@ public class Animations {
                         }
                     });
 
+                } else {
+                    if (listener != null) {
+                        listener.onFinishAnimation();
+                    }
                 }
             }
         });

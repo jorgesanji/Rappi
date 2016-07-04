@@ -21,6 +21,7 @@ public class SplashFragment extends MVPFragment<SplashPresenter, SplashPresenter
             getPresenter().onLaunchHome();
         }
     };
+
     private Handler mHandler = new Handler(Looper.myLooper());
 
     @Override
@@ -43,6 +44,7 @@ public class SplashFragment extends MVPFragment<SplashPresenter, SplashPresenter
     @Override
     protected void onDidAppear() {
         mHandler.postDelayed(launchHome, Common.SPLASH_DURATION);
+        splashScreen.startAnimation();
     }
 
     // SplashPresenter.View

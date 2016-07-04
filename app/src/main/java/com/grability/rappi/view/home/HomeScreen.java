@@ -3,7 +3,9 @@ package com.grability.rappi.view.home;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
@@ -15,7 +17,8 @@ import com.grability.rappi.utils.TLDividerItemDecoration;
 import com.grability.rappi.view.animation.ScrollHandler;
 import com.grability.rappi.view.customviews.RPMenuButton;
 import com.grability.rappi.view.customviews.RPRecyclerView;
-import com.grability.rappi.view.home.adapter.ListAdapter;
+import com.grability.rappi.view.home.adapter.Aplications.ApplicationsAdapter;
+import com.grability.rappi.view.home.adapter.Categories.CategoriesAdapter;
 
 import java.util.List;
 
@@ -38,8 +41,8 @@ public class HomeScreen extends RelativeLayout {
 
     // Vars
     private Listener listener;
-    private ListAdapter mAdapter;
-    private LinearLayoutManager mLayoutManager;
+    private BaseAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private ScrollHandler mScrollHandler;
 
     // Views
@@ -96,17 +99,19 @@ public class HomeScreen extends RelativeLayout {
     }
 
     private void initRecyclerView() {
-        mLayoutManager = new LinearLayoutManager(getContext());
+        boolean isPortrait = getContext().getResources().getBoolean(R.bool.portrait_only);
+        mLayoutManager = isPortrait ? new LinearLayoutManager(getContext()) : new GridLayoutManager(getContext(), 4);
         mHomeList.setLayoutManager(mLayoutManager);
-        mHomeList.addItemDecoration(new TLDividerItemDecoration(getContext(), R.drawable.line_divider_contacts));
+        if (isPortrait) {
+            mHomeList.addItemDecoration(new TLDividerItemDecoration(getContext(), R.drawable.line_divider_contacts));
+        }
         mHomeList.setItemAnimator(new SlideInUpAnimator());
         mScrollHandler = new ScrollHandler(mMenuButton, null, null);
         mHomeList.setOnScrollListener(mScrollHandler);
     }
 
     private void initAdapter(boolean isCategory) {
-        mAdapter = new ListAdapter();
-        mAdapter.setCategories(isCategory);
+        mAdapter = isCategory ? new CategoriesAdapter() : new ApplicationsAdapter();
         mHomeList.setAdapter(mAdapter);
     }
 
@@ -152,7 +157,7 @@ public class HomeScreen extends RelativeLayout {
         return mAdapter.getItems();
     }
 
-    public void setCategory(boolean isCategory, List<AppItem> items) {
+    public void setCategory(boolean isCategory, List items) {
         initAdapter(isCategory);
         mAdapter.setItems(items);
         if (!isCategory) {

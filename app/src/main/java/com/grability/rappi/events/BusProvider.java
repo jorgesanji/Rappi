@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.squareup.otto.Bus;
+import com.squareup.otto.ThreadEnforcer;
 
 /**
  * Created by jorgesanmartin on 3/7/16.
@@ -18,7 +19,7 @@ public class BusProvider {
     public static BusProvider getInstance() {
         if (busProvider == null) {
             busProvider = new BusProvider();
-            busProvider.setBus(new Bus());
+            busProvider.setBus(new Bus(ThreadEnforcer.MAIN));
         }
 
         return busProvider;

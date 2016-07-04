@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.cronosgroup.core.view.MVPFragment;
 import com.grability.rappi.ScreenNavigationHandler;
+import com.grability.rappi.model.dataacess.database.model.AppCategory;
 import com.grability.rappi.model.dataacess.database.model.AppItem;
 import com.grability.rappi.presenter.home.HomePresenter;
 import com.grability.rappi.view.base.RappiActivity;
@@ -45,7 +46,12 @@ public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View>
     @Override
     public void setItems(List<AppItem> list) {
         this.items = list;
-        homeScreen.addItems(list);
+        getPresenter().getCategories();
+    }
+
+    @Override
+    public void setCategories(List<AppCategory> list) {
+        homeScreen.setCategory(true, list);
     }
 
     @Override
@@ -76,7 +82,7 @@ public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View>
 
     @Override
     public void onCategoriesPressed() {
-        homeScreen.setCategory(true, getItems());
+        getPresenter().getCategories();
     }
 
     @Override

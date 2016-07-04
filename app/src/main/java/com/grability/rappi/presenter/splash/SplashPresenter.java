@@ -34,6 +34,8 @@ public class SplashPresenter extends RappiPresenter<SplashPresenter.View> {
     //Public methods
 
     public void onLaunchHome() {
-        listener.onLaunchHome(getView().getActivity(), null);
+        if (getView().getActivity() != null) {
+            listener.onLaunchHome(getView().getActivity(), null);
+        }
     }
 }

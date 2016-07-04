@@ -9,13 +9,14 @@ import com.cronosgroup.core.rest.RestError;
 import com.grability.rappi.events.BusProvider;
 import com.grability.rappi.events.DetailDataEvent;
 import com.grability.rappi.model.business.logic.RappiUseCases;
+import com.grability.rappi.model.dataacess.database.model.AppCategory;
 import com.grability.rappi.model.dataacess.database.model.AppItem;
+import com.grability.rappi.model.dataacess.database.repository.AppCategoryRepository;
+import com.grability.rappi.model.dataacess.database.repository.AppItemRepository;
 import com.grability.rappi.presenter.base.RappiPresenter;
 import com.grability.rappi.utils.NetworkConnection;
 
 import java.util.List;
-
-import io.realm.Realm;
 
 
 /**
@@ -24,6 +25,7 @@ import io.realm.Realm;
 public class HomePresenter extends RappiPresenter<HomePresenter.View> {
 
     private final Actions listener;
+    private AppItemRepository appItemRepository = new AppItemRepository();
 
     public HomePresenter(Actions actions) {
         this.listener = actions;
@@ -31,6 +33,8 @@ public class HomePresenter extends RappiPresenter<HomePresenter.View> {
 
     public interface View extends Presenter.View {
         void setItems(List<AppItem> list);
+
+        void setCategories(List<AppCategory> list);
 
         List<AppItem> getItems();
     }
@@ -42,10 +46,9 @@ public class HomePresenter extends RappiPresenter<HomePresenter.View> {
     //Public methods
 
     public void getItems() {
-        final Realm realm = Realm.getDefaultInstance();
         if (!NetworkConnection.isConnected(getView().getContext())) {
             getStatusView().showNetworkError();
-            getView().setItems(realm.where(AppItem.class).findAll());
+            getView().setItems(appItemRepository.getAllItems());
         } else {
 
             getView().showLoading();
@@ -60,7 +63,7 @@ public class HomePresenter extends RappiPresenter<HomePresenter.View> {
                 @Override
                 public void onErrorResponse(RestError error) {
                     getStatusView().showNetworkError();
-                    getView().setItems(realm.where(AppItem.class).findAll());
+                    getView().setItems(appItemRepository.getAllItems());
                     getView().hideLoading();
                 }
             }, getView().getActivity());
@@ -69,7 +72,14 @@ public class HomePresenter extends RappiPresenter<HomePresenter.View> {
 
     public void onItemPressed(int position) {
         DetailDataEvent detailDataEvent = new DetailDataEvent(getView().getItems(), position);
+//        Bundle bundle = new Bundle();
+//        bundle.putInt(Common.ITEM_POSITION, position);
         listener.onItemPressed(getView().getActivity(), null);
         BusProvider.getInstance().postWithDelay(detailDataEvent);
+    }
+
+    public void getCategories() {
+        AppCategoryRepository appCategoryRepository = new AppCategoryRepository();
+        getView().setCategories(appCategoryRepository.getCategories());
     }
 }
