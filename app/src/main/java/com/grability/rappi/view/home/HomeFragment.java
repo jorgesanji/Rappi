@@ -3,6 +3,7 @@ package com.grability.rappi.view.home;
 import android.view.View;
 
 import com.cronosgroup.core.view.MVPFragment;
+import com.grability.rappi.R;
 import com.grability.rappi.ScreenNavigationHandler;
 import com.grability.rappi.presenter.home.HomePresenter;
 import com.grability.rappi.view.base.RappiActivity;
@@ -36,6 +37,7 @@ public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View>
 
     @Override
     protected void onDidAppear() {
+        ((RappiActivity) getActivity()).getSupportActionBar().setTitle(R.string.home_categories);
         getPresenter().getItems();
     }
 
@@ -81,11 +83,13 @@ public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View>
 
     @Override
     public void onCategoriesPressed() {
+        ((RappiActivity) getActivity()).getSupportActionBar().setTitle(R.string.home_categories);
         getPresenter().getCategories();
     }
 
     @Override
     public void onApplicationPressed() {
+        ((RappiActivity) getActivity()).getSupportActionBar().setTitle(R.string.home_applications);
         getPresenter().getAplications();
     }
 }

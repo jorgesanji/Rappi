@@ -50,7 +50,7 @@ public class HomePresenter extends RappiPresenter<HomePresenter.View> {
     public void getItems() {
         if (!NetworkConnection.isConnected(getView().getContext())) {
             getStatusView().showNetworkError();
-            getView().setItems(categoryManager.getAllItemOrderByName());
+            getView().setCategories(categoryManager.getAllItemOrderByName());
         } else {
 
             getView().showLoading();
@@ -65,7 +65,7 @@ public class HomePresenter extends RappiPresenter<HomePresenter.View> {
                 @Override
                 public void onErrorResponse(RestError error) {
                     getStatusView().showNetworkError();
-                    getView().setItems(categoryManager.getAllItemOrderByName());
+                    getView().setCategories(categoryManager.getAllItemOrderByName());
                     getView().hideLoading();
                 }
             }, getView().getActivity());
